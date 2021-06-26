@@ -1,0 +1,95 @@
+<!-- Header-->
+<header class="header">
+  <!-- Top bar -->
+  <div class="py-2 bg-dark text-white">
+    <div class="container py-1">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <ul class="list-inline mb-0 text-small">
+            <li class="list-inline-item">
+              Travel Blog
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block text-right">
+          <div class="dropdown text-small">
+            <a class="reset-anchor dropdown-toggle" id="destinations" href="#" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-americas mr-2"></i>Destinos</a>
+            <div class="dropdown-menu" aria-labelledby="destinations">
+              <a *ngFor="let destino of arrDestinos" class="dropdown-item text-small"
+                [routerLink]="['/pais', destino.toLowerCase()]">{{ destino | uppercase }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar 1 -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
+    <div class="container text-center">
+      <a class="navbar-brand mx-auto" [routerLink]="['/']"><img class="mb-2" src="../assets/img/logo.svg" alt=""
+          width="140" />
+        <p class="text-small text-uppercase text-gray mb-0">
+          Tu pequeña guía de viaje
+        </p>
+      </a>
+    </div>
+  </nav>
+  <!-- Navbar 2 -->
+  <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item px-1">
+            <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item px-1">
+            <a class="nav-link" [routerLink]="['/destinos']" routerLinkActive="active">Destinos</a>
+          </li>
+          <li class="nav-item px-1">
+            <a class="nav-link" [routerLink]="['/newdestino']" routerLinkActive="active">Nuevo post</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<router-outlet class="my-4"></router-outlet>
+<footer class="bg-dark py-4 fixed-bottom">
+  <div class="container">
+    <div class="row py-2">
+      <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+        <p class="small text-light text-uppercase mb-0">
+          &copy; copyright 2020 - <strong>travel tu blog de viajes</strong>
+        </p>
+      </div>
+      <div class="col-lg-6 text-right mb-2 mb-lg-0">
+        <ul class="list-inline text-white small mb-0">
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

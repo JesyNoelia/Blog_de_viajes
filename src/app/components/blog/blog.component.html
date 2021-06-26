@@ -1,0 +1,47 @@
+<section class="pt-5">
+  <div class="container pt-5">
+    <div class="row mb-5">
+      <div class="col-lg-8">
+        <div class="row text-center">
+          <div class="col-lg-6 mb-5" *ngFor="let post of arrPost">
+            <a [routerLink]="['/viaje', post?.id]"
+              ><img class="img-fluid mb-4" [src]="post?.imagen" alt=""
+            /></a>
+            <ul class="list-inline small text-uppercase mb-0">
+              <li class="list-inline-item mr-0 text-gray align-middle">By</li>
+              <li class="list-inline-item align-middle mr-0">
+                <span class="font-weight-bold reset-anchor">
+                  {{ post?.autor }}
+                </span>
+              </li>
+              <li class="list-inline-item text-gray align-middle mx-1">|</li>
+              <li class="list-inline-item text-gray align-middle">
+                {{ post?.fecha | date: "dd/MM/yy" }}
+              </li>
+            </ul>
+            <h3 class="h4 mt-2">
+              <a class="reset-anchor" [routerLink]="['/viaje', post?.id]">
+                {{ post?.titulo }}
+              </a>
+            </h3>
+            <a
+              class="reset-anchor text-gray text-uppercase small mb-2 d-block"
+              href="#"
+              >{{ post?.categoria }}</a
+            >
+            <p class="text-small mb-1">
+              {{ post?.subtitulo }}
+            </p>
+            <a class="btn btn-link" [routerLink]="['/viaje', post?.id]"
+              >Leer más</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <app-sidebar></app-sidebar>
+      </div>
+    </div>
+  </div>
+</section>

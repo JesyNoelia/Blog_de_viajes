@@ -1,0 +1,31 @@
+<section class="pt-5">
+  <div class="container">
+    <h1>Nuestros Viajes Favoritos</h1>
+    <p class="mb-0">Aquí tienes nuestros destinos favoritos para abrir boca</p>
+  </div>
+  <owl-carousel
+    [options]="slideOptions"
+    [items]="arrDestinos"
+    [carouselClasses]="[
+      'destinations-slider owl-carousel owl-theme nav-center-custom owl-padding',
+      'sliding'
+    ]"
+  >
+    <a
+      class="destination d-flex align-items-end bg-center bg-cover"
+      *ngFor="let destino of arrDestinos"
+      [routerLink]="['/viaje', destino.id]"
+      [style]="'background: url(' + destino.imagen + ')'"
+    >
+      <div
+        class="destination-inner w-100 text-center text-white index-forward has-transition"
+      >
+        <p class="small text-uppercase mb-0">{{ destino.categoria }}</p>
+        <h2 class="h3 mb-4">{{ destino.pais | uppercase }}</h2>
+        <div class="btn btn-primary btn-block destination-btn text-white">
+          Descubre
+        </div>
+      </div>
+    </a>
+  </owl-carousel>
+</section>

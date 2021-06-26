@@ -1,0 +1,35 @@
+<!-- Categories widget -->
+<div class="mb-5 text-center">
+  <a
+    class="category reset-anchor bg-cover bg-center mb-2"
+    [routerLink]="['/destinos', 'categoria', categoria.nombre]"
+    [style]="'background: url(' + categoria.thumbnail + ')'"
+    *ngFor="let categoria of arrCategorias"
+  >
+    <p class="category-title text-uppercase small">{{ categoria.nombre }}</p>
+  </a>
+</div>
+<!-- Latest posts widget -->
+<div class="mb-5">
+  <h3 class="h5">Ultimos post</h3>
+  <ul class="list-unstyled">
+    <li class="media mb-1" *ngFor="let post of arrPostLastest">
+      <a [routerLink]="['/viaje', post.id]"
+        ><img [src]="post.imagen" width="80"
+      /></a>
+      <div class="media-body ml-3">
+        <p class="small text-primary text-uppercase mb-0">
+          {{ post.fecha | date: "dd/MM/yy" }}
+        </p>
+        <h6 class="mb-1">
+          <a class="reset-anchor" [routerLink]="['/viaje', post.id]"
+            >{{ post.titulo }}s</a
+          >
+        </h6>
+        <p class="small text-muted">
+          {{ post.subtitulo }}
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>

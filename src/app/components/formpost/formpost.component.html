@@ -1,0 +1,235 @@
+<div class="container my-5">
+  <h1>Crear nuevo post</h1>
+  <hr />
+  <div class="card-header">
+    Introduce los datos de la publicación. Los campos con * son obligatorios
+  </div>
+  <div class="card-body">
+    <form class="form-group" [formGroup]="formPost" (ngSubmit)="recogerDatos()">
+      <fieldset>
+        <div class="form-group">
+          <label>Titulo(*)</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce titulo"
+            formControlName="titulo"
+            name="titulo"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.titulo.errors && formPost.controls.titulo.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+
+        <div class="form-group">
+          <label>Subtitulo(*)</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce el subtitulo"
+            formControlName="subtitulo"
+            name="subtitulo"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.subtitulo.errors &&
+            formPost.controls.subtitulo.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Descripción(*)</label>
+          <textarea
+            class="form-control"
+            type="text"
+            formControlName="descripcion"
+            name="descripcion"
+          ></textarea>
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.descripcion.errors &&
+            formPost.controls.descripcion.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Autor(*)</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce el nombre del autor"
+            formControlName="autor"
+            name="autor"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.autor.errors && formPost.controls.autor.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Pais(*)</label>
+          <select class="form-control" name="pais" formControlName="pais">
+            <option value="alemania">Alemania</option>
+            <option value="españa">España</option>
+            <option value="eeuu">EEUU</option>
+            <option value="francia">Francia</option>
+            <option value="inglaterra">Inglaterra</option>
+            <option value="brasil">Brasil</option>
+            <option value="portugal">Portugal</option>
+            <option value="nigeria">Nigeria</option>
+            <option value="China">China</option>
+            <option value="japon">Japón</option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.pais.errors && formPost.controls.pais.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Fecha(*)</label>
+          <input
+            class="form-control"
+            type="date"
+            placeholder="Introduce el fecha"
+            formControlName="fecha"
+            name="fecha"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.fecha.errors && formPost.controls.fecha.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Foto autor(*)</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce la url de imagen del autor"
+            formControlName="avatar"
+            name="avatar"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.avatar.errors && formPost.controls.avatar.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label>Imagen(*)</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce la url de imagen de la publicación"
+            formControlName="imagen"
+            name="imagen"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.imagen.errors && formPost.controls.imagen.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+
+        <div class="form-group">
+          <label>Categoría(*)</label>
+          <select
+            class="form-control"
+            name="categoria"
+            formControlName="categoria"
+          >
+            <option
+              *ngFor="let categoria of arrCategorias"
+              [value]="categoria?.nombre"
+            >
+              {{ categoria?.nombre | uppercase }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.categoria.errors &&
+            formPost.controls.categoria.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+        <div class="form-group">
+          <label
+            >Etiquetas(*) - escribe las etiquetas separadas por comas</label
+          >
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Introduce el subtitulo"
+            formControlName="tags"
+            name="tags"
+          />
+        </div>
+        <div
+          *ngIf="
+            formPost.controls.tags.errors && formPost.controls.tags.touched
+          "
+          class="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Campo requerido</strong> debes rellenar el campo
+        </div>
+
+        <div class="form-check form-group">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="destacado"
+            formControlName="destacado"
+          />
+          <label class="form-check-label">Destacado</label>
+        </div>
+        <input
+          [disabled]="!formPost.valid"
+          class="btn btn-primary"
+          type="submit"
+          value="Guardar"
+        />
+      </fieldset>
+    </form>
+  </div>
+</div>

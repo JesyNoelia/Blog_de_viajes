@@ -1,0 +1,59 @@
+<div class="container text-center">
+  <p class="h6 mb-0 text-uppercase text-primary">
+    {{ postPublicado?.categoria | uppercase }}
+  </p>
+  <h1>{{ postPublicado?.titulo }}</h1>
+  <p class="mb-3">
+    {{ postPublicado?.subtitulo }}
+  </p>
+  <ul class="list-inline small text-uppercase mb-0">
+    <li class="list-inline-item align-middle">
+      <img
+        class="rounded-circle shadow-sm"
+        [src]="postPublicado?.avatar"
+        width="40"
+      />
+    </li>
+    <li class="list-inline-item mr-0 text-muted align-middle">By</li>
+    <li class="list-inline-item align-middle mr-0">
+      <span class="font-weight-bold reset-anchor">{{
+        postPublicado?.autor
+      }}</span>
+    </li>
+    <li class="list-inline-item text-muted align-middle mr-0">|</li>
+    <li class="list-inline-item text-muted align-middle mr-0">
+      {{ postPublicado?.fecha | date: "dd/MM/yyyy" }}
+    </li>
+  </ul>
+</div>
+<div
+  class="my-5 container"
+  [style]="
+    'height: 30vh; overflow: hidden; background-image: url(' +
+    postPublicado?.imagen +
+    '); background-size:cover; background-position: center bottom'
+  "
+></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mb-5 mb-lg-0">
+      <div [innerHTML]="postPublicado?.descripcion"></div>
+      <div class="p-4 bg-light mb-5">
+        <ul class="list-inline mb-0">
+          <li
+            class="list-inline-item mr-2 pr-lg-2"
+            *ngFor="let tag of postPublicado?.tags"
+          >
+            <span class="tag reset-anchor">
+              <i class="fas fa-bookmark text-primary mr-2"></i>
+              {{ tag }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
